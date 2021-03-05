@@ -4,3 +4,4 @@
 ^cran-comments.md$
 ^.ci$
 ^.gitlab-ci.yml$
+^CRAN-RELEASE$
