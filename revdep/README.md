@@ -10,7 +10,7 @@
 |collate  |German_Germany.1252          |
 |ctype    |German_Germany.1252          |
 |tz       |Europe/Berlin                |
-|date     |2021-03-05                   |
+|date     |2021-03-08                   |
 
 # Dependencies
 
@@ -62,7 +62,7 @@
 |dendextend           |1.14.0     |1.14.0     |   |
 |DESeq2               |1.30.1     |1.30.1     |   |
 |digest               |0.6.27     |0.6.27     |   |
-|dplyr                |1.0.4      |1.0.4      |   |
+|dplyr                |1.0.5      |1.0.5      |   |
 |DT                   |0.17       |0.17       |   |
 |egg                  |0.4.5      |0.4.5      |   |
 |ellipse              |0.4.2      |0.4.2      |   |
@@ -138,7 +138,7 @@
 |openssl              |1.4.3      |1.4.3      |   |
 |openxlsx             |4.2.3      |4.2.3      |   |
 |pbkrtest             |0.5-0.1    |0.5-0.1    |   |
-|pillar               |1.5.0      |1.5.0      |   |
+|pillar               |1.5.1      |1.5.1      |   |
 |pkgconfig            |2.0.3      |2.0.3      |   |
 |plogr                |0.2.0      |0.2.0      |   |
 |plotly               |4.9.3      |4.9.3      |   |
