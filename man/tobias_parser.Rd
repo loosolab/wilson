@@ -45,7 +45,7 @@ tobias_parser(
 Click \href{https://github.molgen.mpg.de/loosolab/TOBIAS}{here} for more information about TOBIAS.
 }
 \details{
-During conversion the parser will try to use the given config (if provided) to create the \href{https://github.molgen.mpg.de/loosolab/wilson-apps/wiki/CLARION-Format}{Clarion} metadata. In the case of insufficient config information it will try to approximate by referencing condition names issuing warnings in the process.
+During conversion the parser will try to use the given config (if provided) to create the \href{https://github.molgen.mpg.de/loosolab/wilson-apps/wiki/Local-usage:Input-format/}{Clarion} metadata. In the case of insufficient config information it will try to approximate by referencing condition names issuing warnings in the process.
 
 As the format requires an unique id the parser will create one if necessary.
 

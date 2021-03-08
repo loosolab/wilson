@@ -401,7 +401,7 @@ parser <- function(file, dec = ".") {
 #' @param dec Decimal separator. Used in file reading and writing.
 #' @param ... Used as header information.
 #'
-#' @details During conversion the parser will try to use the given config (if provided) to create the \href{https://github.molgen.mpg.de/loosolab/wilson-apps/wiki/Local-usage%3AInput-format}{Clarion} metadata. In the case of insufficient config information it will try to approximate by referencing condition names issuing warnings in the process.
+#' @details During conversion the parser will try to use the given config (if provided) to create the \href{https://github.molgen.mpg.de/loosolab/wilson-apps/wiki/Local-usage:Input-format/}{Clarion} metadata. In the case of insufficient config information it will try to approximate by referencing condition names issuing warnings in the process.
 #' @details As the format requires an unique id the parser will create one if necessary.
 #' @details Factor grouping (metadata factor columns) is currently not implemented!
 #'
