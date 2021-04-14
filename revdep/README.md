@@ -2,7 +2,7 @@
 
 |field    |value                        |
 |:--------|:----------------------------|
-|version  |R version 4.0.4 (2021-02-15) |
+|version  |R version 4.0.5 (2021-03-31) |
 |os       |Windows 10 x64               |
 |system   |x86_64, mingw32              |
 |ui       |RStudio                      |
@@ -10,13 +10,13 @@
 |collate  |German_Germany.1252          |
 |ctype    |German_Germany.1252          |
 |tz       |Europe/Berlin                |
-|date     |2021-03-08                   |
+|date     |2021-04-14                   |
 
 # Dependencies
 
 |package              |old        |new        |<U+0394>  |
 |:--------------------|:----------|:----------|:--|
-|wilson               |2.4.0      |2.4.1      |*  |
+|wilson               |2.4.1      |2.4.2      |*  |
 |abind                |1.4-5      |1.4-5      |   |
 |annotate             |1.68.0     |1.68.0     |   |
 |AnnotationDbi        |1.52.0     |1.52.0     |   |
@@ -32,17 +32,17 @@
 |bit64                |4.0.5      |4.0.5      |   |
 |bitops               |1.0-6      |1.0-6      |   |
 |blob                 |1.2.1      |1.2.1      |   |
-|broom                |0.7.5      |0.7.5      |   |
+|broom                |0.7.6      |0.7.6      |   |
 |bslib                |0.2.4      |0.2.4      |   |
 |cachem               |1.0.4      |1.0.4      |   |
 |Cairo                |1.5-12.2   |1.5-12.2   |   |
-|callr                |3.5.1      |3.5.1      |   |
+|callr                |3.6.0      |3.6.0      |   |
 |car                  |3.0-10     |3.0-10     |   |
 |carData              |3.0-4      |3.0-4      |   |
-|caTools              |1.18.1     |1.18.1     |   |
+|caTools              |1.18.2     |1.18.2     |   |
 |cellranger           |1.1.0      |1.1.0      |   |
 |circlize             |0.4.12     |0.4.12     |   |
-|cli                  |2.3.1      |2.3.1      |   |
+|cli                  |2.4.0      |2.4.0      |   |
 |clipr                |0.7.1      |0.7.1      |   |
 |clue                 |0.3-58     |0.3-58     |   |
 |colorspace           |2.0-0      |2.0-0      |   |
@@ -52,13 +52,13 @@
 |conquer              |1.0.2      |1.0.2      |   |
 |corrplot             |0.84       |0.84       |   |
 |cowplot              |1.1.1      |1.1.1      |   |
-|cpp11                |0.2.6      |0.2.6      |   |
+|cpp11                |0.2.7      |0.2.7      |   |
 |crayon               |1.4.1      |1.4.1      |   |
 |crosstalk            |1.1.1      |1.1.1      |   |
 |curl                 |4.3        |4.3        |   |
 |data.table           |1.14.0     |1.14.0     |   |
 |DBI                  |1.1.1      |1.1.1      |   |
-|DelayedArray         |0.16.2     |0.16.2     |   |
+|DelayedArray         |0.16.3     |0.16.3     |   |
 |dendextend           |1.14.0     |1.14.0     |   |
 |DESeq2               |1.30.1     |1.30.1     |   |
 |digest               |0.6.27     |0.6.27     |   |
@@ -76,7 +76,7 @@
 |flashClust           |1.01-2     |1.01-2     |   |
 |forcats              |0.5.1      |0.5.1      |   |
 |foreach              |1.5.1      |1.5.1      |   |
-|formatR              |1.7        |1.7        |   |
+|formatR              |1.8        |1.8        |   |
 |fs                   |1.5.0      |1.5.0      |   |
 |futile.logger        |1.4.3      |1.4.3      |   |
 |futile.options       |1.0.1      |1.0.1      |   |
@@ -84,7 +84,7 @@
 |genefilter           |1.72.1     |1.72.1     |   |
 |geneplotter          |1.68.0     |1.68.0     |   |
 |generics             |0.1.0      |0.1.0      |   |
-|GenomeInfoDb         |1.26.2     |1.26.2     |   |
+|GenomeInfoDb         |1.26.7     |1.26.7     |   |
 |GenomeInfoDbData     |1.2.4      |1.2.4      |   |
 |GenomicRanges        |1.42.0     |1.42.0     |   |
 |GetoptLong           |1.0.5      |1.0.5      |   |
@@ -123,7 +123,7 @@
 |locfit               |1.5-9.4    |1.5-9.4    |   |
 |log4r                |0.3.2      |0.3.2      |   |
 |magrittr             |2.0.1      |2.0.1      |   |
-|maptools             |1.0-2      |1.0-2      |   |
+|maptools             |1.1-1      |1.1-1      |   |
 |markdown             |1.1        |1.1        |   |
 |MatrixGenerics       |1.2.1      |1.2.1      |   |
 |MatrixModels         |0.5-0      |0.5-0      |   |
@@ -137,8 +137,8 @@
 |numDeriv             |2016.8-1.1 |2016.8-1.1 |   |
 |openssl              |1.4.3      |1.4.3      |   |
 |openxlsx             |4.2.3      |4.2.3      |   |
-|pbkrtest             |0.5-0.1    |0.5-0.1    |   |
-|pillar               |1.5.1      |1.5.1      |   |
+|pbkrtest             |0.5.1      |0.5.1      |   |
+|pillar               |1.6.0      |1.6.0      |   |
 |pkgconfig            |2.0.3      |2.0.3      |   |
 |plogr                |0.2.0      |0.2.0      |   |
 |plotly               |4.9.3      |4.9.3      |   |
@@ -146,7 +146,7 @@
 |png                  |0.1-7      |0.1-7      |   |
 |polynom              |1.4-0      |1.4-0      |   |
 |prettyunits          |1.1.1      |1.1.1      |   |
-|processx             |3.4.5      |3.4.5      |   |
+|processx             |3.5.1      |3.5.1      |   |
 |progress             |1.2.2      |1.2.2      |   |
 |promises             |1.2.0.1    |1.2.0.1    |   |
 |ps                   |1.6.0      |1.6.0      |   |
@@ -157,9 +157,9 @@
 |rappdirs             |0.3.3      |0.3.3      |   |
 |RColorBrewer         |1.1-2      |1.1-2      |   |
 |Rcpp                 |1.0.6      |1.0.6      |   |
-|RcppArmadillo        |0.10.2.1.0 |0.10.2.1.0 |   |
+|RcppArmadillo        |0.10.4.0.0 |0.10.4.0.0 |   |
 |RcppEigen            |0.3.3.9.1  |0.3.3.9.1  |   |
-|RCurl                |1.98-1.2   |1.98-1.2   |   |
+|RCurl                |1.98-1.3   |1.98-1.3   |   |
 |readr                |1.4.0      |1.4.0      |   |
 |readxl               |1.3.1      |1.3.1      |   |
 |registry             |0.5-1      |0.5-1      |   |
@@ -172,7 +172,7 @@
 |rjson                |0.2.20     |0.2.20     |   |
 |RJSONIO              |1.3-1.4    |1.3-1.4    |   |
 |rlang                |0.4.10     |0.4.10     |   |
-|RSQLite              |2.2.3      |2.2.3      |   |
+|RSQLite              |2.2.6      |2.2.6      |   |
 |rstatix              |0.7.0      |0.7.0      |   |
 |S4Vectors            |0.28.1     |0.28.1     |   |
 |sass                 |0.3.1      |0.3.1      |   |
@@ -184,7 +184,7 @@
 |shinycssloaders      |1.0.0      |1.0.0      |   |
 |shinydashboard       |0.7.1      |0.7.1      |   |
 |shinyjs              |2.0.0      |2.0.0      |   |
-|shinyWidgets         |0.5.7      |0.5.7      |   |
+|shinyWidgets         |0.6.0      |0.6.0      |   |
 |snow                 |0.4-3      |0.4-3      |   |
 |sourcetools          |0.1.7      |0.1.7      |   |
 |sp                   |1.4-5      |1.4-5      |   |
@@ -198,14 +198,14 @@
 |tidyr                |1.1.3      |1.1.3      |   |
 |tidyselect           |1.1.0      |1.1.0      |   |
 |TSP                  |1.1-10     |1.1-10     |   |
-|utf8                 |1.1.4      |1.1.4      |   |
-|vctrs                |0.3.6      |0.3.6      |   |
+|utf8                 |1.2.1      |1.2.1      |   |
+|vctrs                |0.3.7      |0.3.7      |   |
 |viridis              |0.5.1      |0.5.1      |   |
-|viridisLite          |0.3.0      |0.3.0      |   |
+|viridisLite          |0.4.0      |0.4.0      |   |
 |webshot              |0.5.2      |0.5.2      |   |
 |withr                |2.4.1      |2.4.1      |   |
-|xfun                 |0.21       |0.21       |   |
-|XML                  |3.99-0.5   |3.99-0.5   |   |
+|xfun                 |0.22       |0.22       |   |
+|XML                  |3.99-0.6   |3.99-0.6   |   |
 |xtable               |1.8-4      |1.8-4      |   |
 |XVector              |0.30.0     |0.30.0     |   |
 |yaml                 |2.2.1      |2.2.1      |   |
