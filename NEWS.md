@@ -1,3 +1,5 @@
+# wilson 2.4.2
+- scatterplot fix transformation of highlighted data
 # wilson 2.4.1
 - columnSelector and Clarion bugfix
 # wilson 2.4.0
