@@ -5,3 +5,4 @@
 ^.ci$
 ^.gitlab-ci.yml$
 ^CRAN-RELEASE$
+^wilson-basic
