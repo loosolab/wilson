@@ -12,7 +12,6 @@ URL: https://github.com/loosolab/wilson/
 BugReports: https://github.com/loosolab/wilson/issues/
 License: MIT + file LICENSE
 Encoding: UTF-8
-LazyData: true
 Imports: shiny,
     data.table,
     ggplot2,
