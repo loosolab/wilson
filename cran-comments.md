@@ -1,7 +1,7 @@
 # Submission
 ## Test environments
 * local windows 10 install, R 4.0.5
-* debian 10, R 4.0.4 and devel
+* debian 10, R 4.0.5 and devel
 * win-builder (devel and release)
 
 ## R CMD check results
