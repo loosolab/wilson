@@ -192,8 +192,8 @@ scatterPlot <- function(input, output, session, clarion, marker.output = NULL, p
   # transform highlight data
   if (!is.null(marker.output)) {
     # note: same id as transform_x/y so it depends on same ui
-    highlight_transform_x <- shiny::callModule(transformation, "transform_x", data = shiny::reactive(as.matrix(marker_object()$data[, xaxis$selected_column(), with = FALSE])))
-    highlight_transform_y <- shiny::callModule(transformation, "transform_y", data = shiny::reactive(as.matrix(marker_object()$data[, yaxis$selected_column(), with = FALSE])))
+    highlight_transform_x <- shiny::callModule(transformation, "transform_x", data = shiny::reactive(as.matrix(marker_object()$data[, xaxis$selected_column(), with = FALSE])), pseudocount = shiny::reactive(ifelse(marker_object()$metadata[key == xaxis$selected_column()][["level"]] == "contrast", 0, 1)))
+    highlight_transform_y <- shiny::callModule(transformation, "transform_y", data = shiny::reactive(as.matrix(marker_object()$data[, yaxis$selected_column(), with = FALSE])), pseudocount = shiny::reactive(ifelse(marker_object()$metadata[key == yaxis$selected_column()][["level"]] == "contrast", 0, 1)))
   }
   limit_x <- shiny::callModule(limit, "xaxis_limit", lower = shiny::reactive(result_data()$xlim[1]), upper = shiny::reactive(result_data()$xlim[2]))
   limit_y <- shiny::callModule(limit, "yaxis_limit", lower = shiny::reactive(result_data()$ylim[1]), upper = shiny::reactive(result_data()$ylim[2]))
@@ -228,8 +228,8 @@ scatterPlot <- function(input, output, session, clarion, marker.output = NULL, p
     # transform highlight data
     if (!is.null(marker.output)) {
       # note: same id as transform_x/y so it depends on same ui
-      highlight_transform_x <<- shiny::callModule(transformation, "transform_x", data = shiny::reactive(as.matrix(marker_object()$data[, xaxis$selected_column(), with = FALSE])))
-      highlight_transform_y <<- shiny::callModule(transformation, "transform_y", data = shiny::reactive(as.matrix(marker_object()$data[, yaxis$selected_column(), with = FALSE])))
+      highlight_transform_x <<- shiny::callModule(transformation, "transform_x", data = shiny::reactive(as.matrix(marker_object()$data[, xaxis$selected_column(), with = FALSE])), pseudocount = shiny::reactive(ifelse(marker_object()$metadata[key == xaxis$selected_column()][["level"]] == "contrast", 0, 1)))
+      highlight_transform_y <<- shiny::callModule(transformation, "transform_y", data = shiny::reactive(as.matrix(marker_object()$data[, yaxis$selected_column(), with = FALSE])), pseudocount = shiny::reactive(ifelse(marker_object()$metadata[key == yaxis$selected_column()][["level"]] == "contrast", 0, 1)))
     }
     limit_x <<- shiny::callModule(limit, "xaxis_limit", lower = shiny::reactive(result_data()$xlim[1]), upper = shiny::reactive(result_data()$xlim[2]))
     limit_y <<- shiny::callModule(limit, "yaxis_limit", lower = shiny::reactive(result_data()$ylim[1]), upper = shiny::reactive(result_data()$ylim[2]))
@@ -407,7 +407,7 @@ scatterPlot <- function(input, output, session, clarion, marker.output = NULL, p
     plot <- create_scatterplot(
       data = result_data()$processed_data,
       data.labels = result_data()$data_label,
-      data.hovertext <- result_data()$data_hovertext,
+      data.hovertext = result_data()$data_hovertext,
       color = color()$palette,
       x_label = xaxis$label(),
       y_label = yaxis$label(),
