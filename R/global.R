@@ -20,7 +20,9 @@ create_logger <- function(logfile = NULL, level = "INFO", name = "wilson") {
   logger <- lgr::get_logger(name)
   # lgr caches loggers by name, so reset appenders to keep repeated calls idempotent
   logger$set_appenders(list())
-  logger$set_threshold(level)
+  # lgr expects lower-case level names (e.g. "info"); accept the upper-case
+  # names used by log_message()/log4r too
+  logger$set_threshold(tolower(level))
   if (!is.null(logfile)) {
     logger$add_appender(lgr::AppenderFile$new(logfile), name = "file")
     # log to the file only (mirrors the old log4r file logger); without a file
