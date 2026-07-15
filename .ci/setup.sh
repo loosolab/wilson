@@ -10,7 +10,7 @@ echo "================================ done ================================"
 
 echo "==================== apt-get install requirements ===================="
 DEBIAN_FRONTEND=noninteractive \
-apt-get install -y $(grep -v -e '^\s*#' -e '^\s*$' .ci/apt-requirements.txt)
+apt-get install -y --allow-downgrades $(grep -v -e '^\s*#' -e '^\s*$' .ci/apt-requirements.txt)
 echo "================================ done ================================"
 
 ##### R #####
