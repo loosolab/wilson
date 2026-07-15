@@ -1250,7 +1250,7 @@ download <- function(file, filename, plot, width, height, ppi = 72, save_plot = 
     plotly::orca(p = plot, file = basename(plot_file_pdf))
     plotly::orca(p = plot, file = basename(plot_file_png))
     setwd(wd)
-  } else if (class(plot) == "Heatmap") { # TODO: find better way to check for complexHeatmap object
+  } else if (methods::is(plot, "Heatmap")) { # complexHeatmap object (S4 class)
     # complexHeatmap
     grDevices::pdf(plot_file_pdf, width = width / 2.54, height = height / 2.54, useDingbats = FALSE) # cm to inch
     ComplexHeatmap::draw(plot, heatmap_legend_side = "bottom", auto_adjust = FALSE)
