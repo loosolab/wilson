@@ -4,30 +4,13 @@ set -eo pipefail
 
 ##### Debian #####
 # update package list
-echo "==================== apt-get update & dist-upgrade ===================="
+echo "==================== apt-get update ===================="
 apt-get update -y
-
-DEBIAN_FRONTEND=noninteractive \
-apt-get \
--o Dpkg::Options::="--force-confnew" \
--o Dpkg::Options::="--force-confdef" \
---allow-downgrades \
---allow-remove-essential \
---allow-change-held-packages \
---fix-broken \
---show-upgraded \
---yes \
-dist-upgrade
-# Dpkg::Options = if a config changed install default version and fall back to new version
 echo "================================ done ================================"
 
 echo "==================== apt-get install requirements ===================="
-while IFS= read -r package;
-do
-  echo "------------ installing $package ------------"
-  apt-get install -y $package
-  echo "---------- done installing $package ----------"
-done < ".ci/apt-requirements.txt"
+DEBIAN_FRONTEND=noninteractive \
+apt-get install -y $(grep -v -e '^\s*#' -e '^\s*$' .ci/apt-requirements.txt)
 echo "================================ done ================================"
 
 ##### R #####
