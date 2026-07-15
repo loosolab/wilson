@@ -8,10 +8,13 @@ echo "==================== apt-get update ===================="
 apt-get update -y
 echo "================================ done ================================"
 
-echo "==================== apt-get install requirements ===================="
-DEBIAN_FRONTEND=noninteractive \
-apt-get install -y --allow-downgrades $(grep -v -e '^\s*#' -e '^\s*$' .ci/apt-requirements.txt)
-echo "================================ done ================================"
+# TEMPORARILY DISABLED (experiment): skip installing the apt requirements to test
+# whether the rocker base image already satisfies them and whether this step is
+# what fails. Re-enable by uncommenting the block below.
+# echo "==================== apt-get install requirements ===================="
+# DEBIAN_FRONTEND=noninteractive \
+# apt-get install -y --allow-downgrades $(grep -v -e '^\s*#' -e '^\s*$' .ci/apt-requirements.txt)
+# echo "================================ done ================================"
 
 ##### R #####
 # check if Rdevel is available
