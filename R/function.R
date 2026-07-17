@@ -1248,14 +1248,17 @@ download <- function(file, filename, plot, width, height, ppi = 72, save_plot = 
     ggplot2::ggsave(plot_file_png, plot = plot, width = width, height = height, units = "cm", device = "png", dpi = ppi)
   } else if (class(plot)[1] == "plotly") {
     # plotly
-    # change working directory temporary so mounted drives are not a problem
-    wd <- getwd()
-    on.exit(setwd(wd)) # make sure working directory will be restored
-    setwd(tempdir())
-    # Omit file path because orca adds it regardles of it already being there.
-    plotly::orca(p = plot, file = basename(plot_file_pdf))
-    plotly::orca(p = plot, file = basename(plot_file_png))
-    setwd(wd)
+    # save_image requires the python module kaleido. Warn if not installed.
+    tryCatch({
+      plotly::save_image(plot, file = plot_file_pdf)
+      plotly::save_image(plot, file = plot_file_png)
+    }, error = function(e) {
+      msg <- paste0("Skipping static image (PDF/PNG) export of the interactive plot; this requires the 'kaleido' Python module. Reason: ", conditionMessage(e))
+      warning(msg, call. = FALSE)
+      if (!is.null(session)) {
+        shiny::showNotification(msg, type = "warning", duration = 10)
+      }
+    })
   } else if (methods::is(plot, "Heatmap")) { # complexHeatmap object (S4 class)
     # complexHeatmap
     grDevices::pdf(plot_file_pdf, width = width / 2.54, height = height / 2.54, useDingbats = FALSE) # cm to inch
@@ -1268,6 +1271,8 @@ download <- function(file, filename, plot, width, height, ppi = 72, save_plot = 
 
   # vector with files to zip
   files <- c(plot_file_pdf, plot_file_png)
+  # only try to export existing files (some may be skipped; see plotly)
+  files <- files[file.exists(files)]
 
   # save user input
   if (!is.null(selection_file)) {
