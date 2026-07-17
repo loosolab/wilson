@@ -1,19 +1,19 @@
 # Submission
 ## Test environments
-* local windows 10 install, R 4.0.5
-* debian 10, R 4.0.5 and devel
+* local windows 11 install, R 4.6.1
+* debian 13, R 4.5.3
 * win-builder (devel and release)
 
 ## R CMD check results
 There was one NOTE and no ERRORs or WARNINGs.
 
 NOTE
-Imports includes 31 non-default packages.
-Importing from so many packages makes the package vulnerable to any of them becoming unavailable. Move as many as possible to Suggests and use conditionally.
+>Package was archived on CRAN
 
-I checked all packages and none can be moved from imports.
+This is a re-submission of an archived Package. I've removed the archived package requirement (log4r).
 
-## Downstream dependencies
-I have also run R CMD check on downstream dependencies of wilson 
-(https://gitlab.gwdg.de/loosolab/software/wilson/tree/master/revdep).
-All packages that I could install passed.
+>Possibly misspelled words in DESCRIPTION:
+   Omics (3:30)
+   omics (9:132)
+
+The words are checked and spelled correctly.

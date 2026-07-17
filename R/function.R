@@ -119,15 +119,15 @@ create_scatterplot <- function(data, data.labels = NULL, data.hovertext = NULL, 
         )
     }
     # set names
-    plot <- plot + ggplot2::aes_(x = as.name(x_head), y = as.name(y_head), color = as.name(z_head))
+    plot <- plot + ggplot2::aes(x = .data[[x_head]], y = .data[[y_head]], color = .data[[z_head]])
   } else {
-    plot <- ggplot2::ggplot(data = data, ggplot2::aes_(x = as.name(x_head), y = as.name(y_head)))
+    plot <- ggplot2::ggplot(data = data, ggplot2::aes(x = .data[[x_head]], y = .data[[y_head]]))
   }
 
   if (density) {
     ### kernel density
     # plot$layers <- c(stat_density2d(geom = "tile", aes(fill = ..density..^0.25), n=200, contour=FALSE) + aes_(fill = as.name(var)), plot$layers) # n = resolution; density less sparse
-    plot <- plot + ggplot2::stat_density2d(geom = "tile", ggplot2::aes_(fill = ~ ..density.. ^ 0.25, color = NULL), n = 200, contour = FALSE)
+    plot <- plot + ggplot2::stat_density2d(geom = "tile", ggplot2::aes(fill = ggplot2::after_stat(density) ^ 0.25, color = NULL), n = 200, contour = FALSE)
 
     plot <- plot + ggplot2::scale_fill_gradient(low = "white", high = "black") +
       # guides(fill=FALSE) +		# remove density legend
@@ -433,11 +433,11 @@ create_pca <- function(data, color.group = NULL, color.title = NULL, palette = N
   }
   # generate mapping
   if (!is.null(color.group) && !is.null(shape.group)) {
-    mapping <- ggplot2::aes_string(x = "x", y = "y", color = "color", shape = "shape")
+    mapping <- ggplot2::aes(x = .data[["x"]], y = .data[["y"]], color = .data[["color"]], shape = .data[["shape"]])
   } else if (!is.null(color.group)) {
-    mapping <- ggplot2::aes_string(x = "x", y = "y", color = "color")
+    mapping <- ggplot2::aes(x = .data[["x"]], y = .data[["y"]], color = .data[["color"]])
   } else if (!is.null(shape.group)) {
-    mapping <- ggplot2::aes_string(x = "x", y = "y", shape = "shape")
+    mapping <- ggplot2::aes(x = .data[["x"]], y = .data[["y"]], shape = .data[["shape"]])
   }
   # apply grouping
   if (!is.null(color.group) || !is.null(shape.group)) {
@@ -448,9 +448,15 @@ create_pca <- function(data, color.group = NULL, color.title = NULL, palette = N
   }
 
   if (labels) {
+    label_data <- data.frame(
+      x = pca$ind$coord[, dimension.a],
+      y = pca$ind$coord[, dimension.b],
+      label = rownames(pca$ind$coord),
+      stringsAsFactors = FALSE
+    )
     pca_plot <- pca_plot + ggrepel::geom_text_repel(
-      data = data.frame(pca$ind$coord),
-      mapping = ggplot2::aes_(x = pca$ind$coord[, dimension.a], y = pca$ind$coord[, dimension.b], label = rownames(pca$ind$coord)),
+      data = label_data,
+      mapping = ggplot2::aes(x = .data[["x"]], y = .data[["y"]], label = .data[["label"]]),
       segment.color = "gray65",
       size = labelsize * scale,
       force = 2,
@@ -911,7 +917,7 @@ create_geneview <- function(data, grouping, plot.type = "line", facet.target = "
       matrixplot <- matrixplot + ggplot2::aes(x = condition, fill = condition)
 
       if (plot.type == "line") {													# line plot: no facetting, different size algorithm
-        matrixplot <- matrixplot + ggplot2::aes_(x = ~ variable, colour = ~ condition, group = ~ condition, fill = NULL)
+        matrixplot <- matrixplot + ggplot2::aes(x = .data[["variable"]], colour = .data[["condition"]], group = .data[["condition"]], fill = NULL)
         matrixplot <- matrixplot + ggplot2::scale_x_discrete(expand = c(0.05, 0.05))								# expand to reduce the whitespace inside the plot (left/right)
       } else {
         # compute number of rows to get facet.cols columns (works better with plotly)
@@ -921,10 +927,10 @@ create_geneview <- function(data, grouping, plot.type = "line", facet.target = "
       }
     }
     if (facet.target == "condition") {													# facet = condition
-      matrixplot <- matrixplot + ggplot2::aes_(x = ~ variable, fill = ~ variable)
+      matrixplot <- matrixplot + ggplot2::aes(x = .data[["variable"]], fill = .data[["variable"]])
 
       if (plot.type == "line") {													# line plot: no facetting, different size algorithm
-        matrixplot <- matrixplot + ggplot2::aes_(x = ~ condition, colour = ~ variable, group = ~ variable, fill = NULL)
+        matrixplot <- matrixplot + ggplot2::aes(x = .data[["condition"]], colour = .data[["variable"]], group = .data[["variable"]], fill = NULL)
         matrixplot <- matrixplot + ggplot2::scale_x_discrete(expand = c(0.05, 0.05))								# expand to reduce the whitespace inside the plot (left/right)
       } else {
         # compute number of rows to get facet.cols columns (works better with plotly)
@@ -955,7 +961,7 @@ create_geneview <- function(data, grouping, plot.type = "line", facet.target = "
     if (plot.type == "line") {
       matrixplot <- matrixplot + ggplot2::theme(legend.position = "right")
       # matrixplot <- matrixplot + geom_errorbar(aes(ymin = value - sd, ymax = value + sd), width = 0.05)								# error bar = standard deviation
-      matrixplot <- matrixplot + ggplot2::geom_errorbar(ggplot2::aes_(ymin = ~ value - se, ymax = ~ value + se), size = 0.2, width = 0.05)								# error bar = standard error
+      matrixplot <- matrixplot + ggplot2::geom_errorbar(ggplot2::aes(ymin = .data[["value"]] - .data[["se"]], ymax = .data[["value"]] + .data[["se"]]), size = 0.2, width = 0.05)								# error bar = standard error
       matrixplot <- matrixplot + ggplot2::geom_line() + ggplot2::geom_point()											# bar plot of the mean (color = condition)
       # set hovertext
       matrixplot <- matrixplot + ggplot2::aes(text = paste("ID: ", data[, "variable"], "\n",
@@ -1242,15 +1248,18 @@ download <- function(file, filename, plot, width, height, ppi = 72, save_plot = 
     ggplot2::ggsave(plot_file_png, plot = plot, width = width, height = height, units = "cm", device = "png", dpi = ppi)
   } else if (class(plot)[1] == "plotly") {
     # plotly
-    # change working directory temporary so mounted drives are not a problem
-    wd <- getwd()
-    on.exit(setwd(wd)) # make sure working directory will be restored
-    setwd(tempdir())
-    # Omit file path because orca adds it regardles of it already being there.
-    plotly::orca(p = plot, file = basename(plot_file_pdf))
-    plotly::orca(p = plot, file = basename(plot_file_png))
-    setwd(wd)
-  } else if (class(plot) == "Heatmap") { # TODO: find better way to check for complexHeatmap object
+    # save_image requires the python module kaleido. Warn if not installed.
+    tryCatch({
+      plotly::save_image(plot, file = plot_file_pdf)
+      plotly::save_image(plot, file = plot_file_png)
+    }, error = function(e) {
+      msg <- paste0("Skipping static image (PDF/PNG) export of the interactive plot; this requires the 'kaleido' Python module. Reason: ", conditionMessage(e))
+      warning(msg, call. = FALSE)
+      if (!is.null(session)) {
+        shiny::showNotification(msg, type = "warning", duration = 10)
+      }
+    })
+  } else if (methods::is(plot, "Heatmap")) { # complexHeatmap object (S4 class)
     # complexHeatmap
     grDevices::pdf(plot_file_pdf, width = width / 2.54, height = height / 2.54, useDingbats = FALSE) # cm to inch
     ComplexHeatmap::draw(plot, heatmap_legend_side = "bottom", auto_adjust = FALSE)
@@ -1262,6 +1271,8 @@ download <- function(file, filename, plot, width, height, ppi = 72, save_plot = 
 
   # vector with files to zip
   files <- c(plot_file_pdf, plot_file_png)
+  # only try to export existing files (some may be skipped; see plotly)
+  files <- files[file.exists(files)]
 
   # save user input
   if (!is.null(selection_file)) {

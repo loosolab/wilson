@@ -11,9 +11,9 @@ log_message(
 )
 }
 \arguments{
-\item{message}{String of message to be written in log. See \code{\link[log4r]{levellog}}.}
+\item{message}{String of message to be written in log. See \code{\link[lgr]{Logger}}.}
 
-\item{level}{Set priority level of the message (number or character). See \code{\link[log4r]{levellog}}.}
+\item{level}{Set priority level of the message (number or character). See \code{\link[lgr]{Logger}}.}
 
 \item{token}{Use token bound to this identifier.}
 }

@@ -1,3 +1,6 @@
+# wilson 2.4.3
+- replaced the archived 'log4r' logging backend with 'lgr'
+- added `create_logger()` to build a logger; pass its result to `set_logger()` (previously a `log4r::create.logger()` object)
 # wilson 2.4.2
 - scatterplot fix transformation of highlighted data
 # wilson 2.4.1

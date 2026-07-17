@@ -2,17 +2,17 @@
 % Please edit documentation in R/global.R
 \name{set_logger}
 \alias{set_logger}
-\title{set a log4r logger used within the package}
+\title{set a logger used within the package}
 \usage{
 set_logger(logger, token = NULL)
 }
 \arguments{
-\item{logger}{A logger object see \code{\link[log4r]{create.logger}}. NULL to disable logging.}
+\item{logger}{A logger object, see \code{\link{create_logger}} or \code{\link[lgr]{get_logger}}. NULL to disable logging.}
 
 \item{token}{Set a unique identifier for this logger.}
 }
 \description{
-set a log4r logger used within the package
+set a logger used within the package
 }
 \details{
 This function will save each logger in the wilson.globals environment. Each logger is stored by the name 'logger'[token] (e.g. 'logger6b821824b0b53b1a3e8f531a34d0d6e6').

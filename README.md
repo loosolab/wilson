@@ -1,7 +1,7 @@
 # WIlsON: Webbased Interactive Omics visualizatioN -  The R Package
 [![CRAN](https://www.r-pkg.org/badges/version/wilson)](https://cran.r-project.org/package=wilson)
 
-[![pipeline status](https://gitlab.gwdg.de/loosolab/software/wilson/badges/master/pipeline.svg)](https://gitlab.gwdg.de/loosolab/software/wilson/commits/master)
+[![pipeline status](https://gitlab.gwdg.de/loosolab/software/wilson/badges/master/pipeline.svg)](https://gitlab.gwdg.de/loosolab/software/wilson/-/commits/master)
 
 ## Abstract
 #### Objective
@@ -14,7 +14,7 @@ The WIlsON R package employs the R Shiny and Plotly web-based frameworks using a
 The WIlsON R package includes a toolbox of R Shiny modules that can be used to construct a wide array of web-interfaces for plotting feature-based data.
 
 ## Availability
-All components of the WIlsON R package have been implemented in an integrated web application that is available for download from the Github repository [wilson-apps](https://github.molgen.mpg.de/loosolab/wilson-apps/) and can be tested on our [official demonstration server](http://loosolab.mpi-bn.mpg.de/wilson/).
+All components of the WIlsON R package have been implemented in an integrated web application that is available for download from the Github repository [wilson-apps](https://github.molgen.mpg.de/loosolab/wilson-apps/) and can be tested on our [official demonstration server](https://bioinformatics-cluster2.mpi-bn.mpg.de/mampok-bn/demo-wilson/wilson/).
 
 Usage instructions can be found in the extensive [documentation](https://github.molgen.mpg.de/loosolab/wilson-apps/wiki/).
 
@@ -35,7 +35,7 @@ BiocManager::install("wilson")
 
 On Windows, make sure that `Rtools` are available. Only versions < 2.3.1.
 
-To enable interactive plot downloads install [Orca](https://github.com/plotly/orca).
+To enable interactive plot downloads install [kaleido](https://github.com/plotly/Kaleido/).
 
 ## CLARION input format
 

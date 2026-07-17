@@ -8,9 +8,11 @@
 if (getRversion() >= "2.15.1") {
   utils::globalVariables(
     c(
+      ".data",
       "Experiment",
       "col_name",
       "condition",
+      "density",
       "level",
       "type"
     )
