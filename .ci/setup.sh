@@ -4,17 +4,31 @@ set -eo pipefail
 
 ##### Debian #####
 # update package list
-echo "==================== apt-get update ===================="
+echo "==================== apt-get update & dist-upgrade ===================="
 apt-get update -y
+
+DEBIAN_FRONTEND=noninteractive \
+apt-get \
+-o Dpkg::Options::="--force-confnew" \
+-o Dpkg::Options::="--force-confdef" \
+--allow-downgrades \
+--allow-remove-essential \
+--allow-change-held-packages \
+--fix-broken \
+--show-upgraded \
+--yes \
+dist-upgrade
+# Dpkg::Options = if a config changed install default version and fall back to new version
 echo "================================ done ================================"
 
-# TEMPORARILY DISABLED (experiment): skip installing the apt requirements to test
-# whether the rocker base image already satisfies them and whether this step is
-# what fails. Re-enable by uncommenting the block below.
-# echo "==================== apt-get install requirements ===================="
-# DEBIAN_FRONTEND=noninteractive \
-# apt-get install -y --allow-downgrades $(grep -v -e '^\s*#' -e '^\s*$' .ci/apt-requirements.txt)
-# echo "================================ done ================================"
+echo "==================== apt-get install requirements ===================="
+while IFS= read -r package;
+do
+  echo "------------ installing $package ------------"
+  apt-get install -y $package
+  echo "---------- done installing $package ----------"
+done < ".ci/apt-requirements.txt"
+echo "================================ done ================================"
 
 ##### R #####
 # check if Rdevel is available
