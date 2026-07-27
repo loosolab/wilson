@@ -14,7 +14,7 @@
 #' Anything else like 'Intensity;ex' or 'Intensity;' results in writing both.
 #' Only works if there are samples of that type. If not, column does not show up in file
 #'
-#' @author Rene Wiegandt
+#' @author Rene Goldstein
 #' @param proteinGroups_in path of proteinGroup.txt file
 #' @param summary_in path of belonging summary.txt file
 #' @param outfile path of full CLARION output file
