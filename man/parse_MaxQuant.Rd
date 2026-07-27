@@ -52,5 +52,5 @@ Anything else like 'Intensity;ex' or 'Intensity;' results in writing both.
 Only works if there are samples of that type. If not, column does not show up in file
 }
 \author{
-Rene Wiegandt
+Rene Goldstein
 }
