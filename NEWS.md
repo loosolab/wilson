@@ -1,3 +1,7 @@
+# wilson 2.4.4
+  - file-writing functions, examples and tests now use `tempfile()`/`tempdir()`
+  - removed `install_app()`'s `location` default
+  - made the `Clarion` example runnable
 # wilson 2.4.3
 - replaced the archived 'log4r' logging backend with 'lgr'
 - added `create_logger()` to build a logger; pass its result to `set_logger()` (previously a `log4r::create.logger()` object)

@@ -23,13 +23,29 @@ This object is used by all top-level wilson modules.
 }
 
 \examples{
-\dontrun{
+# generate clarion contents
+header <- list(format = "Clarion", version = "1.0", experiment_id = "123456")
+
+metadata <- data.table::as.data.table(list(
+  key = c("id", "name", "sample_a", "sample_b"),
+  factor1 = c("", "", "sample_a", "sample_b"),
+  level = c("feature", "feature", "sample", "sample"),
+  type = c("unique_id", "name", "score", "score"),
+  label = c("Identifier", "Name", "Sample A", "Sample B")
+))
+
+data <- data.table::data.table(
+  id = c("id_1", "id_2", "id_3"),
+  name = c("AAA", "BBB", "CCC"),
+  sample_a = c(10000, 300, 20),
+  sample_b = c(50, 40000, 12002)
+)
+
 # initializing a new object
-object <- Clarion$new(header, metadata, data, validate = TRUE)
+object <- Clarion$new(header = header, metadata = metadata, data = data, validate = TRUE)
 
 # create a deep copy
 object_copy <- object$clone(deep = TRUE)
-}
 
 }
 \section{Public fields}{
