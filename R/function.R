@@ -1242,7 +1242,7 @@ download <- function(file, filename, plot, width, height, ppi = 72, save_plot = 
   }
 
   # save plots depending on given plot object
-  if (ggplot2::is.ggplot(plot)) {
+  if (ggplot2::is_ggplot(plot)) {
     # ggplot
     ggplot2::ggsave(plot_file_pdf, plot = plot, width = width, height = height, units = "cm", device = "pdf", useDingbats = FALSE)
     ggplot2::ggsave(plot_file_png, plot = plot, width = width, height = height, units = "cm", device = "png", dpi = ppi)
