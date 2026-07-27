@@ -5,7 +5,7 @@
 \title{Download and install Wilson Apps}
 \usage{
 install_app(
-  location = ".",
+  location,
   remove_data = FALSE,
   start_after_install = FALSE,
   app_name = "wilson-basic",
@@ -13,7 +13,7 @@ install_app(
 )
 }
 \arguments{
-\item{location}{Where the app should be installed. Default is current location.}
+\item{location}{Where the app should be installed.}
 
 \item{remove_data}{If TRUE demo data will be deleted.}
 

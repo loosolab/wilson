@@ -1,6 +1,6 @@
 #' Download and install Wilson Apps
 #'
-#' @param location Where the app should be installed. Default is current location.
+#' @param location Where the app should be installed.
 #' @param remove_data If TRUE demo data will be deleted.
 #' @param start_after_install Start the app when done installing.
 #' @param app_name Select app to install.
@@ -9,7 +9,10 @@
 #' @details  Will create a folder named after parameter app_name.
 #'
 #' @export
-install_app <- function(location = ".", remove_data = FALSE, start_after_install = FALSE, app_name = "wilson-basic", repository = "https://github.molgen.mpg.de/loosolab/wilson-apps") {
+install_app <- function(location, remove_data = FALSE, start_after_install = FALSE, app_name = "wilson-basic", repository = "https://github.molgen.mpg.de/loosolab/wilson-apps") {
+  if (missing(location)) {
+    stop("The install location was not given")
+  }
   if (!requireNamespace("utils", quietly = TRUE)) {
     stop("Package utils required for this function. Please install it.")
   }
