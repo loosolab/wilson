@@ -5,6 +5,7 @@ This is a resubmission based on the feedback from the previous review.
 * local windows 11 install, R 4.6.1
 * debian 13, R 4.5.3
 * win-builder (devel and release)
+* R-hub linux, mac (devel)
 
 ## R CMD check results
 There were two NOTEs and no ERRORs or WARNINGs.
